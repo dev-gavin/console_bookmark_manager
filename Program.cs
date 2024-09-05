@@ -16,16 +16,21 @@ class Program
             var input = GetUserInput();
             var inputArray = input.Split(" ");
             isValidInput = IsValidInput(inputArray);
+            if (!isValidInput)
+                Console.WriteLine("Invalid Command: Type 'help' for a list of commands");
         }
     }
 
     private static bool IsValidInput(string[] inputArray)
     {
-        bool isValidInput = false;
-        string[] validCommands = { "add", "list", "search", "edit", "export", "exit" };
-        isValidInput = validCommands.Contains(inputArray[0]);
+        string command = inputArray[0];
 
-        return isValidInput;
+        ICommandValidator? validator = CommandValidatorFactory.GetValidator(command);
+
+        if (validator == null)
+            return false;
+
+        return validator.isValid(inputArray.Skip(1).ToArray());
     }
 
     private static string GetUserInput()
