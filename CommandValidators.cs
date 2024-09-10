@@ -2,15 +2,18 @@ namespace bookmark_manager;
 
 public class HelpCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
-        throw new NotImplementedException();
+        if (arguments.Length == 0)
+            return true;
+        else
+            return false;
     }
 }
 
 public class AddCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }
@@ -18,7 +21,7 @@ public class AddCommandValidator : ICommandValidator
 
 public class ListCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }
@@ -26,7 +29,7 @@ public class ListCommandValidator : ICommandValidator
 
 public class SearchCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }
@@ -34,7 +37,7 @@ public class SearchCommandValidator : ICommandValidator
 
 public class EditCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }
@@ -42,7 +45,7 @@ public class EditCommandValidator : ICommandValidator
 
 public class ExportCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }
@@ -50,7 +53,7 @@ public class ExportCommandValidator : ICommandValidator
 
 public class ExitCommandValidator : ICommandValidator
 {
-    public bool isValid(string[] arguments)
+    public bool IsValid(string[] arguments)
     {
         throw new NotImplementedException();
     }

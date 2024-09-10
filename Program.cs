@@ -17,7 +17,12 @@ class Program
             var inputArray = input.Split(" ");
             isValidInput = IsValidInput(inputArray);
             if (!isValidInput)
+            {
                 Console.WriteLine("Invalid Command: Type 'help' for a list of commands");
+                continue;
+            }
+            ICommandHandler handler = CommandHandlerFactory.GetHandler(inputArray[0]);
+            handler.HandleCommand(inputArray.Skip(1).ToArray());
         }
     }
 
@@ -30,7 +35,7 @@ class Program
         if (validator == null)
             return false;
 
-        return validator.isValid(inputArray.Skip(1).ToArray());
+        return validator.IsValid(inputArray.Skip(1).ToArray());
     }
 
     private static string GetUserInput()
