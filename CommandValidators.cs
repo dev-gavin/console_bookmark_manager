@@ -55,6 +55,6 @@ public class ExitCommandValidator : ICommandValidator
 {
     public bool IsValid(string[] arguments)
     {
-        throw new NotImplementedException();
+        return true;
     }
 }

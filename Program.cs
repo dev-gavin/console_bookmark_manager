@@ -1,7 +1,5 @@
 ﻿namespace bookmark_manager;
 
-// using Microsoft.Extensions.DependencyInjection;
-
 class Program
 {
     static void Main(string[] args)
@@ -10,20 +8,48 @@ class Program
         Console.WriteLine("Welcome to the Command-Line Bookmark Manager!");
         Console.WriteLine("Type 'help' for a list of commands.");
 
+        bool isProgramRunning = true;
+        while (isProgramRunning)
+        {
+            string[] inputArray = GetValidUserInput();
+            string command = inputArray[0];
+
+            if (String.Equals(command, "exit"))
+            {
+                isProgramRunning = false;
+                break;
+            }
+
+            HandleCommand(command, inputArray.Skip(1).ToArray());
+        }
+    }
+
+    private static void HandleCommand(string command, string[] commandArgs)
+    {
+        ICommandHandler handler = CommandHandlerFactory.GetHandler(command);
+        handler.HandleCommand(commandArgs);
+    }
+
+    private static string[] GetValidUserInput()
+    {
+        string[] inputArray = Array.Empty<string>();
         bool isValidInput = false;
+
         while (!isValidInput)
         {
-            var input = GetUserInput();
-            var inputArray = input.Split(" ");
+            var input = PromptUserForInput();
+            inputArray = input.Split(" ");
+
             isValidInput = IsValidInput(inputArray);
+
             if (!isValidInput)
             {
                 Console.WriteLine("Invalid Command: Type 'help' for a list of commands");
                 continue;
             }
-            ICommandHandler handler = CommandHandlerFactory.GetHandler(inputArray[0]);
-            handler.HandleCommand(inputArray.Skip(1).ToArray());
         }
+
+        return inputArray;
     }
 
     private static bool IsValidInput(string[] inputArray)
@@ -38,16 +64,16 @@ class Program
         return validator.IsValid(inputArray.Skip(1).ToArray());
     }
 
-    private static string GetUserInput()
+    private static string PromptUserForInput()
     {
+        string? input = String.Empty;
         Console.Write(Environment.NewLine);
-        Console.Write("> ");
-        string? input = Console.ReadLine();
-        while (string.IsNullOrEmpty(input))
+        do
         {
             Console.Write("> ");
             input = Console.ReadLine();
-        }
+        } while (string.IsNullOrEmpty(input));
+
         return input;
     }
 }

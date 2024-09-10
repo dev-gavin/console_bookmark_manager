@@ -12,7 +12,6 @@ public class CommandHandlerFactory
             // "search" => new SearchCommandValidator(),
             // "edit" => new ExportCommandValidator(),
             // "exit" => new ExitCommandValidator(),
-            // _ => null,
         };
     }
 }
