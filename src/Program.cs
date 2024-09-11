@@ -25,10 +25,10 @@ class Program
         }
     }
 
-    private static void HandleCommand(string command, string[] commandArgs)
+    private static void HandleCommand(string command, string[] args)
     {
         ICommandHandler handler = CommandHandlerFactory.GetHandler(command);
-        handler.HandleCommand(commandArgs);
+        handler.HandleCommand(args);
     }
 
     private static string[] GetValidUserInput()

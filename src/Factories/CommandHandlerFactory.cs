@@ -1,4 +1,6 @@
-namespace BookmarkManager;
+using BookmarkManager.Handlers;
+
+namespace BookmarkManager.Factories
 
 public class CommandHandlerFactory
 {

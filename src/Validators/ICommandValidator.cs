@@ -1,4 +1,4 @@
-namespace BookmarkManager;
+namespace BookmarkManager.Validators;
 
 public interface ICommandValidator
 {

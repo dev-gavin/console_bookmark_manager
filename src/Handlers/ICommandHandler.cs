@@ -1,4 +1,4 @@
-namespace BookmarkManager;
+namespace BookmarkManager.Handlers
 
 public interface ICommandHandler
 {

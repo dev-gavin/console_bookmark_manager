@@ -1,8 +1,8 @@
-namespace BookmarkManager;
+namespace BookmarkManager.Handlers
 
 public class HelpCommandHandler : ICommandHandler
 {
-    public void HandleCommand(string[] commandArgs)
+    public void HandleCommand(string[] args)
     {
         Console.WriteLine("add\tadd a new bookmark");
         Console.WriteLine("list\tlist all bookmarks");

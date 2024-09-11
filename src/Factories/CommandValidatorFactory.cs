@@ -1,4 +1,6 @@
-namespace BookmarkManager;
+using BookmarkManager.Validators;
+
+namespace BookmarkManager.Factories;
 
 public class CommandValidatorFactory
 {
