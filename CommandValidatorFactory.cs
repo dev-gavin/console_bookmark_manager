@@ -1,4 +1,4 @@
-namespace bookmark_manager;
+namespace BookmarkManager;
 
 public class CommandValidatorFactory
 {

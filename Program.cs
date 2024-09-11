@@ -1,4 +1,4 @@
-﻿namespace bookmark_manager;
+namespace BookmarkManager;
 
 class Program
 {
@@ -20,6 +20,7 @@ class Program
                 break;
             }
 
+            Console.WriteLine();
             HandleCommand(command, inputArray.Skip(1).ToArray());
         }
     }
@@ -54,8 +55,10 @@ class Program
 
     private static bool IsValidInput(string[] inputArray)
     {
-        string command = inputArray[0];
+        if (inputArray.Length == 0)
+            return false;
 
+        string command = inputArray[0];
         ICommandValidator? validator = CommandValidatorFactory.GetValidator(command);
 
         if (validator == null)
