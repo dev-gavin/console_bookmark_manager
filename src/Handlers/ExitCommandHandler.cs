@@ -1,4 +1,4 @@
-namespace BookmarkManager.Handlers
+namespace BookmarkManager.Handlers;
 
 public class ExitCommandHandler : ICommandHandler
 {

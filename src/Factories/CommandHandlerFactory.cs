@@ -1,6 +1,6 @@
 using BookmarkManager.Handlers;
 
-namespace BookmarkManager.Factories
+namespace BookmarkManager.Factories;
 
 public class CommandHandlerFactory
 {
