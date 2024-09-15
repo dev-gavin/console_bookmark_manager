@@ -19,11 +19,11 @@ public class ArchiveCommandHandler : ICommandHandler
 
             if (relevantBookMark.IsArchived)
             {
-                Console.WriteLine($"Archived {relevantBookMark.Name}");
+                Console.WriteLine($"Unarchived {relevantBookMark.Name}");
             }
             else
             {
-                Console.WriteLine($"Unarchived {relevantBookMark.Name}");
+                Console.WriteLine($"Archived {relevantBookMark.Name}");
             }
             relevantBookMark.IsArchived = relevantBookMark.IsArchived ? false : true;
         }

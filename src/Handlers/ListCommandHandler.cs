@@ -7,8 +7,10 @@ public class ListCommandHandler : ICommandHandler
 {
     public void HandleCommand(string[] arguments, BookmarkManagerContext context)
     {
-        Console.WriteLine("Querying for a bookmark");
-        var bookmarks = from bookmark in context.Bookmarks select bookmark;
+        var bookmarks =
+            from bookmark in context.Bookmarks
+            where bookmark.IsArchived == false
+            select bookmark;
 
         foreach (Bookmark bookmark in bookmarks)
         {
