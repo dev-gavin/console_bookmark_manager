@@ -23,7 +23,7 @@ public class ListCommandValidator : ICommandValidator
 {
     public bool IsValid(string[] arguments)
     {
-        throw new NotImplementedException();
+        return true;
     }
 }
 

@@ -1,3 +1,8 @@
+using BookmarkManager.Data;
+using BookmarkManager.Factories;
+using BookmarkManager.Handlers;
+using BookmarkManager.Validators;
+
 namespace BookmarkManager;
 
 class Program
@@ -7,6 +12,8 @@ class Program
         Console.Clear();
         Console.WriteLine("Welcome to the Command-Line Bookmark Manager!");
         Console.WriteLine("Type 'help' for a list of commands.");
+
+        using var context = new BookmarkManagerContext();
 
         bool isProgramRunning = true;
         while (isProgramRunning)
@@ -21,14 +28,14 @@ class Program
             }
 
             Console.WriteLine();
-            HandleCommand(command, inputArray.Skip(1).ToArray());
+            HandleCommand(command, inputArray.Skip(1).ToArray(), context);
         }
     }
 
-    private static void HandleCommand(string command, string[] args)
+    private static void HandleCommand(string command, string[] args, BookmarkManagerContext context)
     {
         ICommandHandler handler = CommandHandlerFactory.GetHandler(command);
-        handler.HandleCommand(args);
+        handler.HandleCommand(args, context);
     }
 
     private static string[] GetValidUserInput()
