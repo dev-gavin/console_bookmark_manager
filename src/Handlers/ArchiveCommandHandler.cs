@@ -17,8 +17,16 @@ public class ArchiveCommandHandler : ICommandHandler
                 select bookmark
             ).First();
 
+            if (relevantBookMark.IsArchived)
+            {
+                Console.WriteLine($"Archived {relevantBookMark.Name}");
+            }
+            else
+            {
+                Console.WriteLine($"Unarchived {relevantBookMark.Name}");
+            }
             relevantBookMark.IsArchived = relevantBookMark.IsArchived ? false : true;
-            context.SaveChanges();
         }
+        context.SaveChanges();
     }
 }
