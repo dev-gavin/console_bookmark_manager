@@ -13,5 +13,8 @@ public class Bookmark
     [Column("url")]
     public string Url { get; set; } = null!;
 
+    [Column("isArchived")]
+    public bool IsArchived { get; set; }
+
     public ICollection<Tag> Tags { get; set; } = null!;
 }

@@ -8,12 +8,15 @@ public class ListCommandHandler : ICommandHandler
     public void HandleCommand(string[] arguments, BookmarkManagerContext context)
     {
         Console.WriteLine("Querying for a bookmark");
-        var bookmarks = from bookmark in context.Bookmarks where bookmark.Id == 1 select bookmark;
+        var bookmarks = from bookmark in context.Bookmarks select bookmark;
 
         foreach (Bookmark bookmark in bookmarks)
         {
-            Console.WriteLine(bookmark.Name);
-            Console.WriteLine(bookmark.Url);
+            var tags = from tag in context.Tags where tag.Bookmark.Id == bookmark.Id select tag;
+            var formattedTags = string.Join(",", tags.Select(tag => tag.Name));
+            Console.WriteLine(
+                $"[{bookmark.Id}] {bookmark.Name} - {bookmark.Url} (Tags: {formattedTags})"
+            );
         }
     }
 }
