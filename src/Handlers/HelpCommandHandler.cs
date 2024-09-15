@@ -7,6 +7,7 @@ public class HelpCommandHandler : ICommandHandler
     public void HandleCommand(string[] arguments, BookmarkManagerContext context)
     {
         Console.WriteLine("add\tadd a new bookmark");
+        Console.WriteLine("archive\tarchive a bookmark");
         Console.WriteLine("list\tlist all bookmarks");
         Console.WriteLine("search\tsearch bookmarks");
         Console.WriteLine("edit\tedit a bookmarks");

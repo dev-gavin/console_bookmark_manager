@@ -10,6 +10,7 @@ public class CommandValidatorFactory
         {
             "help" => new HelpCommandValidator(),
             "add" => new AddCommandValidator(),
+            "archive" => new ArchiveCommandHandler(),
             "list" => new ListCommandValidator(),
             "search" => new SearchCommandValidator(),
             "edit" => new ExportCommandValidator(),

@@ -10,6 +10,7 @@ public class CommandHandlerFactory
         {
             "help" => new HelpCommandHandler(),
             // "add" => new AddCommandValidator(),
+            "archive" => new ArchiveCommandHandler(),
             "list" => new ListCommandHandler(),
             // "search" => new SearchCommandValidator(),
             // "edit" => new ExportCommandValidator(),
