@@ -23,7 +23,13 @@ public class ListCommandValidator : ICommandValidator
 {
     public bool IsValid(string[] arguments)
     {
-        return true;
+        if (arguments.Length == 0)
+            return true;
+
+        if (arguments.Contains("--archived"))
+            return true;
+
+        return false;
     }
 }
 
